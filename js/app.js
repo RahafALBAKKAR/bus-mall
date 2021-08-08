@@ -81,16 +81,15 @@ function imgClick(event){
 play();
 counter++;
 console.log(counter);
-let track =0;
-for (let i =0 ; i <numRoll && i <arrayImg.length;i++){
-    if (arrayImg[i]=== arrayImg[event]){
-        track++;
-        delete arrayImg[i];
-        console.log(track);
-    }
-}
   } 
+  console.log(event)
+
+     for (let i =0 ; i <numRoll;i++){
+        if (event.target.id = play() ){
+            document.getElementById("submit").onclick = displayDate;
+              function displayDate() {
+              //  banana had 3 votes, and was seen 5 times.
+               return[`${namePro} had ${track} votes, and was seen ${provide} times.`]}}
+     }
     }
-  
-
-
+            

@@ -1,11 +1,14 @@
 body{
-    width: 960px;
+    width: 1100px;
     margin: auto;
 
 }
-.imgList{
+#imgList{
     display: grid;
-    grid-template-rows: 200px auto 50px;
+  grid-template-columns: auto auto auto;
+  gap:10px;
+  margin: auto;
+ 
 }
 header{
     background-color: #222;
@@ -29,11 +32,7 @@ header nav a :hover{
     color: blue;
 }
 
- #imgList {
-    display: grid;
-    grid-auto-columns: auto auto auto;
-    gap: 10px;
- }
+ 
  h1{
      color: rgb(27, 46, 8);
      text-align: center;
@@ -46,12 +45,14 @@ header nav a :hover{
 
  
  footer{
-     height: 100px;
+    align-items: center;
      background: #222;
      color: #fff;
      display: flex;
-   justify-content: center;
-  
+   height: 50px;
+padding: 20px;
+margin-top:  10px 0;
+  font-size: xx-large;
      text-transform: capitalize;
      font-style: oblique;
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -64,9 +65,39 @@ header nav a :hover{
      left: 0;
      bottom: 0%;
  }
- #result{
-   
-    top: 200px;
-    position: absolute;
-    float: right;
+
+ 
+ img{
+height: 300px;
+width: 400px;
  }
+ 
+ input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 40px;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #222;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 40px;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #666;
+  }
+  form{
+      padding: 100px;
+  }

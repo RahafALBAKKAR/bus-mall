@@ -8,6 +8,7 @@ Sun. 8.AUG.2021
 - I created the first step.
 the websit provide 3 images in home page then the user can select on of them.
 - snd step design the websit by using CSS proprties.
-  
+
+  The app’s purpose is to have the group members choose which product, of the three displayed images, that they would be most likely to purchase, and then store, calculate, and visually display the resulting data.
 
   Rahaf Albakkar.

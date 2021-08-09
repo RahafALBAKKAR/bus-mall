@@ -9,7 +9,7 @@ let arrayImg =[
     'bubblegum.jpg',
     'chair.jpg',
     'cthulhu.jpg',
-    'dog-dcuk.jpg',
+    'dog-duck.jpg',
     'dragon.jpg',
     'pen.jpg',
     'pet-sweep.jpg',
@@ -72,7 +72,7 @@ play();
 
 let counter = 0;
 let numRoll = 25;
-setElemntToVariable();
+
 imgList.addEventListener('click', imgClick);
 function imgClick(event){
    
@@ -81,13 +81,13 @@ function imgClick(event){
     && (counter < numRoll)){
     
   if (event.target.id = 'firstImg'){
-      show.all[2].reslut++;
+      show.all[1].reslut++;
       }
   if (event.target.id = 'sndImg'){
-    show.all[sndImg].reslut++;
+    show.all[2].reslut++;
 }
 if (event.target.id = 'thdImg'){
-    show.all[thdImg].reslut++;
+    show.all[3].reslut++;
 }
 play();
 counter++;
@@ -95,5 +95,20 @@ console.log(counter);
 console.log(event);
 }}
 
+clickHere.addEventListener('click',printList);
+function printList(){
+    const ul = document.createElement('ul');
+    reslutDiv.appendChild(ul);
+    for(let i=0 ; i < show.all.length; i++){
+        let li= document.createElement('li');
+        li.textContent=`${show.all[i].namePro} had ${show.all[i].provide} votes, 
+        and was seen ${show.all[i].reslut} times.`
+        ul.appendChild(li);
+
+    }
+
+}
     
-            
+            if (counter>=numRoll){
+            imgList.removeEventListener('click', changeImg);   
+            }

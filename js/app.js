@@ -27,22 +27,24 @@ let arrayImg =[
 
 // const Img =document.createElementById('Img');
 let all =[];
+let firstImg = 0;
+let sndImg = 0;
+let thdImg = 0;
 
 let imgList =document.getElementById('imgList');
-let firstImg=document.getElementById('firstImg');
-let sndImg=document.getElementById('sndImg');
-let thdImg=document.getElementById('thdImg');
+firstImg=document.getElementById('firstImg');
+sndImg=document.getElementById('sndImg');
+thdImg=document.getElementById('thdImg');
 
-
-
-function show (namePro, srcOfImg){
+function show (namePro, srcOfImg,){
     this.namePro = namePro;
     this.imgSrc = srcOfImg;
-    this.provide=0;
+    this.provide = 0;
+    this.reslut = 0;
     show.all.push(this);
 }
 show.all=[ ];
-
+console.log(show.all)
 for(let i=0; i< arrayImg.length ;i++){
 new show(arrayImg[i].split('.')[0],arrayImg[i]);
 }
@@ -53,13 +55,13 @@ function random(min,max){
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 function play(){
-    let firstRandom=random(0, arrayImg.length-1);
+   let  firstRandom=random(0, arrayImg.length-1);
     let sndRandom=random(0,arrayImg.length-1);
     let thdRandom=random(0,arrayImg.length-1);
 
-    firstImg.src ='../img/'+ show.all[firstRandom].imgSrc;
-     sndImg.src='../img/'+show.all[sndRandom].imgSrc;
-     thdImg.src='../img/'+show.all[thdRandom].imgSrc;
+    firstImg.src ='img/'+ show.all[firstRandom].imgSrc;
+    sndImg.src='img/'+show.all[sndRandom].imgSrc;
+    thdImg.src='img/'+show.all[thdRandom].imgSrc;
 
     show.all[firstRandom].provide++;
     show.all[sndRandom].provide++;
@@ -68,28 +70,30 @@ function play(){
 play();
 
 
-
-// For each of the three images, increment its
-//  property of times it has been shown by one
-
-let counter=0;
+let counter = 0;
+let numRoll = 25;
+setElemntToVariable();
 imgList.addEventListener('click', imgClick);
 function imgClick(event){
-    let numRoll=25;
-    if((event.target.id === "firstImg" || event.target.id === 'sndImg' || event.target.id ==='thdImg')
-     && counter<numRoll){
+   
+    if((event.target.id === "firstImg" || event.target.id === 'sndImg' || 
+    event.target.id ==='thdImg')
+    && (counter < numRoll)){
+    
+  if (event.target.id = 'firstImg'){
+      show.all[2].reslut++;
+      }
+  if (event.target.id = 'sndImg'){
+    show.all[sndImg].reslut++;
+}
+if (event.target.id = 'thdImg'){
+    show.all[thdImg].reslut++;
+}
 play();
 counter++;
 console.log(counter);
-  } 
-  console.log(event)
+console.log(event);
+}}
 
-     for (let i =0 ; i <numRoll;i++){
-        if (event.target.id = play() ){
-            document.getElementById("submit").onclick = displayDate;
-              function displayDate() {
-              //  banana had 3 votes, and was seen 5 times.
-               return[`${namePro} had ${track} votes, and was seen ${provide} times.`]}}
-     }
-    }
+    
             

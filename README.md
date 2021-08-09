@@ -12,3 +12,10 @@ the websit provide 3 images in home page then the user can select on of them.
   The app’s purpose is to have the group members choose which product, of the three displayed images, that they would be most likely to purchase, and then store, calculate, and visually display the resulting data.
 
   Rahaf Albakkar.
+
+  ___________-
+  Mon 9.AUG.2021
+  the snd step in my project has two goal :
+  1. I Update my algorithm to randomly generate a product images from the images directory, in snd rolle a new products are generated, confirm that these products are not duplicates from the immediate previous set.
+
+2.  I used a visual representation of how many times a product was clicked so that a user can visually analyze the results.

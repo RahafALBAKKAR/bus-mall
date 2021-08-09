@@ -26,7 +26,7 @@ let arrayImg = [
 let all = [];
 let imgList = document.getElementById('imgList');
 let firstImg = document.getElementById('firstImg');
- let sndImg = document.getElementById('sndImg');
+let sndImg = document.getElementById('sndImg');
 let thdImg = document.getElementById('thdImg');
 function show(namePro, srcOfImg,) {
     this.namePro = namePro;
@@ -46,25 +46,39 @@ console.log(show.all)
 function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-let firstRandom ;
-    let sndRandom ;
-    let thdRandom ;
+let firstRandom;
+let sndRandom;
+let thdRandom;
+
 function play() {
     firstRandom = random(0, arrayImg.length - 1);
-    sndRandom = random(0, arrayImg.length - 1);
-    thdRandom = random(0, arrayImg.length - 1);
+    // sndRandom = random(0, arrayImg.length - 1);
+    do {
+        sndRandom = random(0, arrayImg.length - 1);
+    } while (firstRandom === sndRandom);
+    do {
+        thdRandom = random(0, arrayImg.length - 1);
+    } while (sndRandom === thdRandom);
+
     firstImg.src = 'img/' + show.all[firstRandom].imgSrc;
     sndImg.src = 'img/' + show.all[sndRandom].imgSrc;
-    thdImg.src = 'img/' + show.all[thdRandom ].imgSrc;
+    thdImg.src = 'img/' + show.all[thdRandom].imgSrc;
+
     show.all[firstRandom].provide++;
-    show.all[sndRandom].provide++;
-    show.all[thdRandom].provide++;
+    if(firstRandom===sndRandom && sndRandom===thdRandom){
+        show.all[sndRandom].provide++;
+    }
+    else{
+        show.all[thdRandom].provide++;
+    }
+    
 }
+
 play();
 let counter = 0;
 let numRoll = 25;
 imgList.addEventListener('click', imgClick);
-function imgClick(event)  {
+function imgClick(event) {
     if ((event.target.id === "firstImg" || event.target.id === 'sndImg' || event.target.id === 'thdImg')
         && counter < numRoll) {
         if (event.target.id = 'firstImg') {
@@ -79,11 +93,11 @@ function imgClick(event)  {
         play();
         counter++;
     }
-  }
- clickHere.addEventListener('click', printList);
+}
+clickHere.addEventListener('click', printList);
 function printList() {
     const ul = document.createElement('ul');
-     reslutDiv.appendChild(ul);
+    reslutDiv.appendChild(ul);
     for (let i = 0; i < show.all.length; i++) {
         let li = document.createElement('li');
         li.textContent = `${show.all[i].namePro} had ${show.all[i].provide} votes, 
@@ -94,3 +108,42 @@ function printList() {
 if (counter >= numRoll) {
     imgList.removeEventListener('click', changeImg);
 }
+////////// create chart
+busMallChart();
+function busMallChart(){
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [clickHere.firstImg.namePro,clickHere.sndImg.namePro,clickHere.thdImg.namePro],
+    
+        datasets: [{
+            label: '# Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});}

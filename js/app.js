@@ -106,6 +106,7 @@ function imgClick(event) {
   
 clickHere.addEventListener('click', printList);
 function printList() {
+    if(counter>=numRoll){
     const ul = document.createElement('ul');
     reslutDiv.appendChild(ul);
     for (let i = 0; i < show.all.length; i++) {
@@ -114,10 +115,10 @@ function printList() {
         and was seen ${show.all[i].reslut} times.`
         ul.appendChild(li);
     }
-}
-if (counter >= numRoll) {
-    imgList.removeEventListener('click', changeImg);
-}
+}}
+// if (counter >= numRoll) {
+//     imgList.removeEventListener('click', changeImg);
+// }
 ////////// create chart
 
 function busMallChart(){
@@ -155,7 +156,7 @@ let myChart = new Chart(ctx, {
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 5
         }]
     },
     options: {
@@ -165,4 +166,5 @@ let myChart = new Chart(ctx, {
             }
         }
     }
-});}
+});
+}

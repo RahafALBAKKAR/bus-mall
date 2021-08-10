@@ -91,9 +91,12 @@ function imgClick(event) {
             show.all[thdRandom].reslut++;
         }
         play();
-        counter++;
+        counter++; 
+    }else{
+        busMallChart();
     }
-}
+} 
+  
 clickHere.addEventListener('click', printList);
 function printList() {
     const ul = document.createElement('ul');
@@ -109,17 +112,26 @@ if (counter >= numRoll) {
     imgList.removeEventListener('click', changeImg);
 }
 ////////// create chart
-busMallChart();
+
 function busMallChart(){
+    let nameArry=[];
+    let resultArray=[];
+    let provideArray=[];
+    for (let i =0; i<show.all.length;i++){
+        nameArry.push(show.all[i].namePro);
+        resultArray.push(show.all[i].reslut);
+        provideArray.push(show.all[i].provide);    
+    }
 var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
+
+let myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [clickHere.firstImg.namePro,clickHere.sndImg.namePro,clickHere.thdImg.namePro],
-    
+        labels: nameArry,
         datasets: [{
-            label: '# Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: '# shown',
+            data: provideArray,
+            data:resultArray,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

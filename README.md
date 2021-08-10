@@ -18,4 +18,4 @@ the websit provide 3 images in home page then the user can select on of them.
   the snd step in my project has two goal :
   1. I Update my algorithm to randomly generate a product images from the images directory, in snd rolle a new products are generated, confirm that these products are not duplicates from the immediate previous set.
 
-2.  I used a visual representation of how many times a product was clicked so that a user can visually analyze the results.
+2.  I used a visual representation of how many times a product was clicked so that a user can visually analyze the results the vote and time of click.

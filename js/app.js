@@ -23,7 +23,7 @@ let arrayImg = [
 //     File path of image
 //     Times the image has been shown
 // const Img =document.createElementById('Img');
-let previousArray=[];
+
 let all = [];
 let imgList = document.getElementById('imgList');
 let firstImg = document.getElementById('firstImg');
@@ -50,11 +50,12 @@ function random(min, max) {
 let firstRandom;
 let sndRandom;
 let thdRandom;
-
+let previousArray=[];
 function play() {
-   
+
+    
     do {
-        firstdRandom = random(0, arrayImg.length - 1);
+        firstRandom = random(0, arrayImg.length - 1);
         sndRandom = random(0, arrayImg.length - 1);
         thdRandom = random(0, arrayImg.length - 1);
     } while (firstRandom === sndRandom
@@ -64,7 +65,7 @@ function play() {
         ||previousArray.includes(sndRandom)
         ||previousArray.includes(thdRandom));
         
-  previousArra[firstRandom,sndRandom,thdRandom];
+  previousArray=[firstRandom,sndRandom,thdRandom];
 
     firstImg.src = 'img/' + show.all[firstRandom].imgSrc;
     sndImg.src = 'img/' + show.all[sndRandom].imgSrc;
@@ -105,6 +106,7 @@ function imgClick(event) {
   
 clickHere.addEventListener('click', printList);
 function printList() {
+    if(counter>=numRoll){
     const ul = document.createElement('ul');
     reslutDiv.appendChild(ul);
     for (let i = 0; i < show.all.length; i++) {
@@ -113,10 +115,10 @@ function printList() {
         and was seen ${show.all[i].reslut} times.`
         ul.appendChild(li);
     }
-}
-if (counter >= numRoll) {
-    imgList.removeEventListener('click', changeImg);
-}
+}}
+// if (counter >= numRoll) {
+//     imgList.removeEventListener('click', changeImg);
+// }
 ////////// create chart
 
 function busMallChart(){
@@ -154,7 +156,7 @@ let myChart = new Chart(ctx, {
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 5
         }]
     },
     options: {
@@ -164,4 +166,5 @@ let myChart = new Chart(ctx, {
             }
         }
     }
-});}
+});
+}

@@ -23,6 +23,7 @@ let arrayImg = [
 //     File path of image
 //     Times the image has been shown
 // const Img =document.createElementById('Img');
+let previousArray=[];
 let all = [];
 let imgList = document.getElementById('imgList');
 let firstImg = document.getElementById('firstImg');
@@ -51,14 +52,19 @@ let sndRandom;
 let thdRandom;
 
 function play() {
-    firstRandom = random(0, arrayImg.length - 1);
-    // sndRandom = random(0, arrayImg.length - 1);
+   
     do {
+        firstdRandom = random(0, arrayImg.length - 1);
         sndRandom = random(0, arrayImg.length - 1);
-    } while (firstRandom === sndRandom);
-    do {
         thdRandom = random(0, arrayImg.length - 1);
-    } while (sndRandom === thdRandom);
+    } while (firstRandom === sndRandom
+         || firstRandom===thdRandom 
+        || sndRandom===thdRandom
+        || previousArray.includes(firstRandom)
+        ||previousArray.includes(sndRandom)
+        ||previousArray.includes(thdRandom));
+        
+  previousArra[firstRandom,sndRandom,thdRandom];
 
     firstImg.src = 'img/' + show.all[firstRandom].imgSrc;
     sndImg.src = 'img/' + show.all[sndRandom].imgSrc;

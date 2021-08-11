@@ -29,11 +29,11 @@ let imgList = document.getElementById('imgList');
 let firstImg = document.getElementById('firstImg');
 let sndImg = document.getElementById('sndImg');
 let thdImg = document.getElementById('thdImg');
-function show(namePro, srcOfImg,) {
+function show(namePro, srcOfImg,provide,reslut) {
     this.namePro = namePro;
     this.imgSrc = srcOfImg;
-    this.provide = 0;
-    this.reslut = 0;
+    this.provide= provide;
+    this.reslut = reslut;
     show.all.push(this);
 }
 show.all = [];
@@ -180,7 +180,7 @@ function getData() {
     if (localStorage.data) {
         let data = JSON.parse(localStorage.data);
         for (let i = 0; i < arrayImg.length ; i++) {
-            new show( data[i].namePro, data[i].imgSrc, data[i].provide);
+            new show( data[i].namePro, data[i].imgSrc, data[i].provide,data[i].reslut);
         }
     }
     else {

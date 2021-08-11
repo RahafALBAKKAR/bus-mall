@@ -25,6 +25,8 @@ let arrayImg = [
 // const Img =document.createElementById('Img');
 
 let all = [];
+let counter = 0;
+let numRoll = 24;
 let imgList = document.getElementById('imgList');
 let firstImg = document.getElementById('firstImg');
 let sndImg = document.getElementById('sndImg');
@@ -87,12 +89,12 @@ function play() {
 }
 
 play();
-let counter = 0;
-let numRoll = 25;
+
 imgList.addEventListener('click', imgClick);
 function imgClick(event) {
-    if ((event.target.id === "firstImg" || event.target.id === 'sndImg' || event.target.id === 'thdImg')
-        && counter < numRoll) {
+    if ((event.target.id === "firstImg" || event.target.id === 'sndImg' ||
+     event.target.id === 'thdImg')
+        && counter <= numRoll) {
         if (event.target.id = 'firstImg') {
             show.all[firstRandom].reslut++;
         }
@@ -114,7 +116,7 @@ show.prototype.getName = function () {
 
 clickHere.addEventListener('click', printList);
 function printList() {
-    if (counter >= numRoll) {
+    if (counter > numRoll) {
         const ul = document.createElement('ul');
         reslutDiv.appendChild(ul);
         for (let i = 0; i < show.all.length; i++) {
@@ -125,9 +127,9 @@ function printList() {
         }
     }
 }
-// if (counter >= numRoll) {
-//     imgList.removeEventListener('click', changeImg);
-// }
+ if (counter >= numRoll) {
+     imgList.removeEventListener('click', changeImg);
+}
 ////////// create chart
 
 function busMallChart() {

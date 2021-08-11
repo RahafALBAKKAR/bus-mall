@@ -29,6 +29,7 @@ let imgList = document.getElementById('imgList');
 let firstImg = document.getElementById('firstImg');
 let sndImg = document.getElementById('sndImg');
 let thdImg = document.getElementById('thdImg');
+
 function show(namePro, srcOfImg,provide,reslut) {
     this.namePro = namePro;
     this.imgSrc = srcOfImg;
@@ -135,8 +136,9 @@ function busMallChart() {
     let provideArray = [];
     for (let i = 0; i < show.all.length; i++) {
         nameArry.push(show.all[i].namePro);
-        resultArray.push(show.all[i].reslut);
         provideArray.push(show.all[i].provide);
+        resultArray.push(show.all[i].reslut);
+        
     }
     var ctx = document.getElementById('myChart').getContext('2d');
 
@@ -145,7 +147,7 @@ function busMallChart() {
         data: {
             labels: nameArry,
             datasets: [{
-                label: '# shown',
+                label: 'vote',
                 data: provideArray,
                 data: resultArray,
                 backgroundColor: [
@@ -176,6 +178,8 @@ function busMallChart() {
         }
     });
 }
+
+
 function getData() {
     if (localStorage.data) {
         let data = JSON.parse(localStorage.data);

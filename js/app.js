@@ -155,9 +155,9 @@ function busMallChart() {
           label: '# click',
           data: provideArray,
           backgroundColor:
-            '#483d8b',
+            '#ffb3b3',
           borderColor:
-            '#fff0f5 ',
+            '#4d0000 ',
           // backgroundColor:
           //         '#125D98',
   
@@ -172,8 +172,8 @@ function busMallChart() {
         }, {
           label: '# shown',
           data: resultArray,
-          hoverBackgroundColor: '#C0C0C0',
-          hoverBorderColor: '#f0f8ff',
+          hoverBackgroundColor: '#ff1a1a',
+          hoverBorderColor: '#ff9999',
   
           borderWidth: 2,
           // type: 'line',
@@ -188,7 +188,7 @@ function busMallChart() {
               // This more specific font property overrides the global property
               font: {
                 size: 20
-              }, color: 'b#808080'
+              }, color: '#800000'
               ,
             }
           }
@@ -196,7 +196,7 @@ function busMallChart() {
         scales: {
           yAxes: [{
             ticks: {
-              fontColor: "black",
+              fontColor: "#800000",
               stepSize: 1,
               beginAtZero: true
             }
